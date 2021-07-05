@@ -595,11 +595,12 @@ input[type="checkbox"] {
     align-self: center;
 }
 .video {
-    border-radius: 10px;
+    border-radius: 30px;
     overflow: hidden;
     z-index: 1;
     height:500px;
     width: 100%;
+    
 }
 
 .header .container{
