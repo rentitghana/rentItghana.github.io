@@ -4,6 +4,17 @@ import {listPosts} from '../graphql/queries'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import InfoCard from '../components/InfoCard';
 import SearchMap from '../components/SearchMap';
+import { css } from "@emotion/react";
+import SyncLoader from "react-spinners/SyncLoader";
+
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 180px;
+  margin-top: 180px;
+`;
+
 function SearchPage(props) {
     const[posts, setPosts] = useState([]);
     const[datalist, setDatalist] = useState([])
@@ -13,6 +24,11 @@ function SearchPage(props) {
     const nelongitude = location.state.nelongitude;
     const swlongitude = location.state.swlongitude;
     const title = location.state.title;
+    const [loading, setLoading] = useState(true);
+    
+
+
+
     useEffect ( () => {
     const fetchPosts = async () => {
         try{
@@ -54,6 +70,9 @@ function SearchPage(props) {
 
             setPosts(postsResult.data.listPosts.items);
             setDatalist(postsResult.data.listPosts.items);
+            if(loading){
+                setLoading(false);
+            }
         } catch (e){
             console.log(e);
         }
@@ -67,6 +86,13 @@ const filterList = () => {
     
 }
 //console.log(initialPost.length)
+    if (loading){
+        return <div>
+            <main className="flex">
+            <SyncLoader color={"deeppink"} css={override}  size={12} />
+            </main>
+        </div>
+    }
     return (
         <div>
             <main className='flex'>

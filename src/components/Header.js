@@ -8,13 +8,14 @@ import Autocomplete from "react-google-autocomplete";
 import { useHistory } from "react-router-dom";
 
 
+
 function Header() {
     const router = useHistory();
     const [nelatitude, setNeLatitude] = useState(null);
     const [swlatitude, setSwLatitude] = useState(null);
     const [nelongitude, setNeLongitude] = useState(null);
     const [swlongitude, setSwLongitude] = useState(null);
-    const [results , setResults] = useState(null);
+    
     const search = () =>{
         router.push({
             pathname: "/search",
@@ -45,7 +46,7 @@ function Header() {
             <div className="flex items-center md:border-2 
             rounded-full py-2 md:shadow-sm">
                 <Autocomplete
-                onChange = {(event) => setResults(event.target.value)}
+                onChange = {(event) => console.log(event.target.value)}
                 apiKey={"AIzaSyBbnGmg020XRNU_EKOTXpmeqbCUCsEK8Ys"}
                 onPlaceSelected={(place, inputRef, autocomplete) => {
                     //var latitude = place.geometry.location.lat;

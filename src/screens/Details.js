@@ -12,6 +12,16 @@ import 'reactjs-popup/dist/index.css';
 
 
 import { getAuth, signInWithPopup} from "firebase/auth";
+import { css } from "@emotion/react";
+import SyncLoader from "react-spinners/SyncLoader";
+
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 180px;
+  margin-top: 180px;
+`;
 
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
@@ -49,6 +59,7 @@ function Details() {
     const [posts, setPosts] = useState();
     const [months, setMonths] = useState(0);
     const [years, setYears] = useState(0);
+    const [loading, setLoading] = useState(true);
     const Modal = () => (
         <Popup trigger={<button className="button"> Open Modal </button>} modal>
           <span> Modal content </span>
@@ -62,6 +73,9 @@ function Details() {
                 )
 
                 setPosts(postsResult.data.listPosts.items);
+                if(loading){
+                    setLoading(false);
+                }
             } catch (e){
                 console.log(e);
             }
@@ -72,6 +86,7 @@ function Details() {
     if(posts === undefined){
         return null;
     }
+
 
     const post = posts.find(place => place.id === homeid);
     const amount = Math.round(post.newPrice * 1.07);
@@ -143,7 +158,13 @@ function Details() {
       </div>
     );
 };
-  
+    if (loading && post === null){
+            return <div>
+                <main className="flex">
+                <SyncLoader color={"deeppink"} css={override}  size={12} />
+                </main>
+            </div>
+        }
     return (
         <div>
             <main className='flex'>

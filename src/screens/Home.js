@@ -93,7 +93,7 @@ function Home() {
         <div>
             
       <Banner/>
-      <main className="max-w-7xl mx-auto px-8 sm:px-16">
+      <main className="flex-grow max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
           <h2 className="flex text-4xl font-semibold py-2">Live Anywhere
           </h2>

@@ -1,6 +1,5 @@
-
 {
-  "homepage": "http://rentitghana.github.io/rentitghana.github.io",
+  "homepage": "http://rentitghana.github.io",
   "name": "rentitweb",
   "version": "0.1.0",
   "private": true,
@@ -24,6 +23,7 @@
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-spinners": "^0.11.0",
     "reactjs-popup": "^2.0.5",
     "tailwind-scrollbar-hide": "^1.1.5",
     "web-vitals": "^1.1.2"
@@ -34,7 +34,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
