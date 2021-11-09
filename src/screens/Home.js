@@ -97,7 +97,7 @@ function Home() {
         <section className="pt-6">
           <h2 className="flex text-4xl font-semibold py-2">Live Anywhere
           </h2>
-          <h4 className="flex text-xl font-light pb-2">Find homes for rent in</h4>
+          <h4 className="flex text-xl font-light pb-2">Lease or buy homes in</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
           xl:grid-cols-3">
           {nearby?.map(({image, viewport, title, key}) => (
