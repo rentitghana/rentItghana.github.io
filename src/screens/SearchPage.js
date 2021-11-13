@@ -79,7 +79,7 @@ function SearchPage(props) {
     }
 
     fetchPosts();
-}, [])
+})
 
 const filterList = () => {
     setDatalist([...posts.filter(category => category.type === "Full Home")])
